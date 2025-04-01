@@ -571,7 +571,7 @@ generateHardwareConfig() {
     fi
 
     step "Generating hardware-configuration.nix using nixos-facter"
-    runSshNoTty -o ConnectTimeout=10 ${maybeSudo} "nixos-facter" >"$hardwareConfigPath"
+    runSshNoTty -o ConnectTimeout=10 ${maybeSudo} "nixos-facter --log-level error" >"$hardwareConfigPath"
     ;;
   nixos-generate-config)
     step "Generating hardware-configuration.nix using nixos-generate-config"
